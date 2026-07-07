@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360">
+  <rect width="600" height="360" fill="#eef5f2"/>
+  <circle cx="474" cy="74" r="92" fill="#d6ebe2"/>
+  <g transform="translate(95 72)" stroke="#173e32" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M92 62h184v95H92z" fill="#f4b84a"/>
+    <path d="M115 34h108v28H115z" fill="#176b52"/>
+    <path d="M276 82h74l30 67" fill="none"/>
+    <circle cx="350" cy="185" r="76" fill="#a9b5b1"/>
+    <circle cx="350" cy="185" r="24" fill="#176b52"/>
+    <path d="M92 157 54 245M220 157l35 88M44 245h238" fill="none"/>
+    <circle cx="76" cy="258" r="24" fill="#176b52"/>
+    <circle cx="248" cy="258" r="24" fill="#176b52"/>
+  </g>
+  <text x="32" y="326" font-family="Arial" font-size="28" font-weight="700" fill="#173e32">CORTADOR DE PISO</text>
+</svg>

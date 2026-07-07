@@ -1,0 +1,19 @@
+{
+  "name": "casa-dos-materiais",
+  "version": "1.6.1",
+  "private": true,
+  "description": "Sistema web de locação e agendamento de equipamentos com área do cliente, painel administrativo, SQLite, financeiro, patrimônio, manutenção, entregas, metas e Programa ObraFácil.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --no-warnings server.js",
+    "dev": "node --no-warnings --watch server.js",
+    "reset-db": "node --no-warnings reset-database.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-session": "^1.18.2"
+  }
+}

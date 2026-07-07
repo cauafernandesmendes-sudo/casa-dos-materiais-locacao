@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa dos materiais | Nota fiscal / recibo</title>
+  <link rel="stylesheet" href="styles.css?v=46">
+</head>
+<body class="print-body">
+  <main class="print-page" id="printInvoice" tabindex="-1">
+    <div class="empty-state">Carregando nota/recibo...</div>
+  </main>
+  <div class="print-actions">
+    <button class="btn btn-primary" onclick="window.print()">Imprimir / Salvar PDF</button>
+    <button class="btn btn-outline" onclick="history.back()">Voltar</button>
+  </div>
+  <script src="app.js?v=46"></script>
+  <script src="invoice.js?v=46"></script>
+</body>
+</html>

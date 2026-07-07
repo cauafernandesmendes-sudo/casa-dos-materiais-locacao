@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Lixadeira Orbital">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fff4e6"/>
+      <stop offset="100%" stop-color="white"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="42" fill="url(#g)"/>
+  <circle cx="220" cy="200" r="90" fill="#9c4221" opacity="0.12"/>
+  <circle cx="980" cy="620" r="140" fill="#9c4221" opacity="0.10"/>
+  <rect x="80" y="88" width="190" height="54" rx="27" fill="#9c4221" opacity="0.16"/>
+  <text x="175" y="123" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#9c4221">Pintura</text>
+  <g transform="translate(92 220)">
+    <rect width="430" height="330" rx="30" fill="white" stroke="#9c4221" stroke-opacity="0.18"/>
+    <circle cx="215" cy="165" r="92" fill="#9c4221" opacity="0.15"/>
+    <text x="215" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="96">🛠️</text>
+  </g>
+  <text x="580" y="340" font-family="Arial, sans-serif" font-size="72" font-weight="800" fill="#16324f">Lixadeira Orbital</text>
+  <text x="580" y="410" font-family="Arial, sans-serif" font-size="36" fill="#4b5563">Casa dos materiais • Locação de equipamentos</text>
+  <text x="580" y="482" font-family="Arial, sans-serif" font-size="28" fill="#6b7280">Imagem ilustrativa para apresentação do catálogo</text>
+  <rect x="580" y="550" width="270" height="58" rx="18" fill="#9c4221"/>
+  <text x="715" y="588" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white">Disponível para locação</text>
+</svg>

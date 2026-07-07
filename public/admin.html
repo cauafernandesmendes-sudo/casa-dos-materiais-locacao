@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa dos materiais | Administração</title>
+  <link rel="stylesheet" href="styles.css?v=46">
+</head>
+<body class="admin-body">
+  <a class="skip-link" href="#adminMainContent">Pular para o conteúdo principal</a>
+  <section class="login-page" id="loginPage">
+    <form class="login-card" id="loginForm">
+      <div class="brand" aria-label="Casa dos materiais"><img class="brand-logo" src="assets/logo-casa-dos-materiais.png" alt="Casa dos materiais - Locação de equipamentos"></div>
+      <h1>Acesso administrativo</h1><p>Entre para gerenciar reservas, estoque, revisões e financeiro.</p>
+      <div class="form-group"><label for="adminEmail">E-mail</label><input id="adminEmail" type="email" value="admin@casadosmateriais.com" required></div>
+      <div class="form-group" style="margin-top:14px"><label for="adminPassword">Senha</label><input id="adminPassword" type="password" value="123456" required></div>
+      <button class="btn btn-primary btn-block" style="margin-top:18px" type="submit">Entrar</button>
+      <a class="btn btn-outline btn-block" style="margin-top:10px" href="index.html">Voltar ao site</a>
+      <div class="demo-box"><strong>Acesso de demonstração</strong><br>E-mail: admin@casadosmateriais.com<br>Senha: 123456</div>
+    </form>
+  </section>
+
+  <div class="admin-layout hidden" id="adminApp">
+    <aside class="sidebar">
+      <div class="brand sidebar-brand" aria-label="Casa dos materiais"><img class="brand-logo sidebar-logo" src="assets/logo-casa-dos-materiais.png" alt="Casa dos materiais - Locação de equipamentos"></div>
+      <nav class="sidebar-nav" aria-label="Navegação administrativa">
+        <button class="sidebar-link active" data-tab="dashboard">▦ <span>Dashboard</span></button>
+        <button class="sidebar-link" data-tab="reservations">📅 <span>Reservas</span></button>
+        <button class="sidebar-link" data-tab="calendar">🗓️ <span>Calendário</span></button>
+        <button class="sidebar-link" data-tab="clients">👥 <span>Clientes</span></button>
+        <button class="sidebar-link" data-tab="equipment">🧰 <span>Equipamentos</span></button>
+        <button class="sidebar-link" data-tab="assets">🏷️ <span>Patrimônio</span></button>
+        <button class="sidebar-link" data-tab="maintenance">🔧 <span>Manutenção</span></button>
+        <button class="sidebar-link" data-tab="finance">💰 <span>Financeiro</span></button>
+        <button class="sidebar-link" data-tab="deliveries">🗺️ <span>Entregas</span></button>
+        <button class="sidebar-link" data-tab="loyalty">★ <span>ObraFácil</span></button>
+        <button class="sidebar-link" data-tab="goals">🎯 <span>Metas</span></button>
+      </nav>
+      <div class="sidebar-bottom"><button class="sidebar-link" id="logoutButton">↪ <span>Sair</span></button></div>
+    </aside>
+
+    <main class="admin-main" id="adminMainContent" tabindex="-1">
+      <header class="admin-topbar"><h1 id="topbarTitle">Dashboard</h1><div class="admin-top-actions"><div class="notification-wrap"><button class="notification-button" id="notificationButton" type="button" aria-label="Notificações">🔔<span id="notificationCount">0</span></button><div class="notification-menu hidden" id="notificationMenu"><div class="notification-menu-head"><strong>Notificações</strong><button type="button" id="closeNotificationMenu">✕</button></div><div id="notificationList"></div></div></div><button class="btn btn-outline btn-sm" id="refreshAdminButton" type="button">↻ Atualizar</button><div class="admin-user"><div class="avatar">AD</div><div><strong>Administrador</strong><div class="small muted">Operação</div></div></div></div></header>
+      <div class="admin-content">
+        <section class="tab-page active" id="tab-dashboard">
+          <div class="page-title dashboard-title-row"><div><h2>Central de controle</h2><p>Visão gerencial para acompanhar reservas, estoque, financeiro, manutenção e metas.</p></div><span class="dashboard-updated" id="dashboardUpdated">Atualizando...</span></div>
+          <div class="kpi-grid dashboard-kpis" id="kpiGrid"></div>
+
+          <div class="quick-actions" aria-label="Controles rápidos">
+            <button class="quick-action" data-go="reservations"><span>📅</span><div><strong>Gerenciar reservas</strong><small>Confirmar, retirar e devolver</small></div></button>
+            <button class="quick-action" data-go="equipment"><span>🧰</span><div><strong>Controlar estoque</strong><small>Quantidade, diária e situação</small></div></button>
+            <button class="quick-action" data-go="maintenance"><span>🔧</span><div><strong>Registrar revisão</strong><small>Manutenção preventiva</small></div></button>
+            <button class="quick-action" data-go="finance"><span>💰</span><div><strong>Ver financeiro</strong><small>Recebimentos e pendências</small></div></button>
+          </div>
+
+          <div class="dashboard-chart-grid">
+            <div class="panel chart-panel"><div class="panel-head"><div><h2>Receita dos últimos 6 meses</h2><span class="small muted">Pagamentos confirmados, sem caução</span></div></div><div id="monthlyRevenueChart" class="chart-area"></div></div>
+            <div class="panel chart-panel"><div class="panel-head"><div><h2>Situação das reservas</h2><span class="small muted">Distribuição por status</span></div></div><div id="reservationStatusChart" class="chart-area"></div></div>
+            <div class="panel chart-panel"><div class="panel-head"><div><h2>Estoque por categoria</h2><span class="small muted">Unidades cadastradas e disponíveis</span></div></div><div id="categoryStockChart" class="chart-area"></div></div>
+            <div class="panel chart-panel"><div class="panel-head"><div><h2>Equipamentos mais alugados</h2><span class="small muted">Quantidade acumulada nas reservas</span></div></div><div id="topEquipmentChart" class="chart-area"></div></div>
+          </div>
+
+          <div class="admin-grid dashboard-bottom-grid">
+            <div class="panel"><div class="panel-head"><h2>Reservas recentes</h2><button class="btn btn-outline btn-sm" data-go="reservations">Ver todas</button></div><div id="recentReservations"></div></div>
+            <div class="panel"><div class="panel-head"><h2>Alertas operacionais</h2><span class="badge warning" id="operationalAlertBadge">0 alertas</span></div><div class="alert-list" id="operationalAlerts"></div></div>
+          </div>
+          <div class="panel" style="margin-top:18px"><div class="panel-head"><h2>Equipamentos que precisam de revisão</h2><span class="badge warning" id="reviewCountBadge">0 alertas</span></div><div class="alert-list review-alert-grid" id="reviewAlerts"></div></div>
+        </section>
+
+        <section class="tab-page" id="tab-reservations">
+          <div class="page-title"><h2>Reservas e agendamentos</h2><p>Confirme solicitações, pagamentos, retiradas e devoluções.</p></div>
+          <div class="toolbar"><div class="toolbar-left"><input class="search-input" id="reservationSearch" placeholder="Buscar cliente, contrato ou equipamento"><select id="reservationFilter"><option value="">Todos os status</option><option value="pendente">Pendente</option><option value="confirmada">Confirmada</option><option value="em_uso">Em uso</option><option value="concluida">Concluída</option><option value="cancelada">Cancelada</option></select><select id="reservationPaymentFilter"><option value="">Todos os pagamentos</option><option value="pendente">Pagamento pendente</option><option value="pago">Pagamento pago</option><option value="estornado">Estornado</option></select></div><div class="toolbar-right"><button class="btn btn-outline" data-export="reservations">Exportar CSV</button></div></div>
+          <div id="reservationTable"></div>
+        </section>
+
+        <section class="tab-page" id="tab-calendar">
+          <div class="page-title"><h2>Calendário de reservas</h2><p>Visualize retiradas, períodos de uso e devoluções em um calendário mensal.</p></div>
+          <div class="panel calendar-panel">
+            <div class="calendar-toolbar"><div><button class="btn btn-outline btn-sm" id="calendarPrev">←</button><button class="btn btn-outline btn-sm" id="calendarToday">Hoje</button><button class="btn btn-outline btn-sm" id="calendarNext">→</button></div><h2 id="calendarTitle">Calendário</h2><div class="calendar-legend"><span class="pending">Pendente</span><span class="confirmed">Confirmada</span><span class="using">Em uso</span><span class="late">Atrasada</span></div></div>
+            <div class="calendar-weekdays"><span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span></div>
+            <div class="reservation-calendar" id="reservationCalendar"></div>
+          </div>
+        </section>
+
+        <section class="tab-page" id="tab-clients">
+          <div class="page-title"><h2>Clientes cadastrados</h2><p>Contas de pessoa física e jurídica, histórico e relacionamento.</p></div>
+          <div class="toolbar"><div class="toolbar-left"><input class="search-input" id="clientAdminSearch" placeholder="Buscar nome, CPF, CNPJ ou e-mail"><select id="clientTypeFilter"><option value="">Todos os tipos</option><option value="PF">Pessoa física</option><option value="PJ">Pessoa jurídica</option></select></div><div class="toolbar-right"><button class="btn btn-outline" data-export="clients">Exportar CSV</button></div></div>
+          <div id="clientsTable"></div>
+        </section>
+
+        <section class="tab-page" id="tab-equipment">
+          <div class="page-title"><h2>Catálogo e estoque</h2><p>Controle quantidade, patrimônio, preços e situação operacional.</p></div>
+          <div class="toolbar"><div class="toolbar-left"><input class="search-input" id="equipmentSearch" placeholder="Buscar equipamento ou categoria"><select id="equipmentCategoryFilter"><option value="">Todas as categorias</option><option value="Construção">Construção</option><option value="Limpeza">Limpeza</option><option value="Jardinagem">Jardinagem</option><option value="Pintura">Pintura</option></select></div><div class="toolbar-right"><button class="btn btn-outline" data-export="equipment">Exportar CSV</button><button class="btn btn-primary" id="newEquipmentButton">+ Novo equipamento</button></div></div>
+          <div id="equipmentTable"></div>
+        </section>
+
+        <section class="tab-page" id="tab-assets">
+          <div class="page-title"><h2>Controle patrimonial</h2><p>Acompanhe cada unidade física, seu código, situação, revisão e reserva atual.</p></div>
+          <div class="toolbar"><div class="toolbar-left"><input class="search-input" id="assetSearch" placeholder="Buscar patrimônio, equipamento ou cliente"><select id="assetStatusFilter"><option value="">Todos os status</option><option value="disponivel">Disponível</option><option value="em_uso">Em uso</option><option value="manutencao">Manutenção</option><option value="indisponivel">Indisponível</option></select></div><div class="toolbar-right"><button class="btn btn-outline" data-export="assets">Exportar CSV</button></div></div>
+          <div class="asset-summary" id="assetSummary"></div>
+          <div id="assetsTable"></div>
+        </section>
+
+        <section class="tab-page" id="tab-maintenance">
+          <div class="page-title"><h2>Manutenção e inspeções</h2><p>Equipamentos vencidos ou com revisão nos próximos 15 dias aparecem em destaque.</p></div>
+          <div class="maintenance-grid" id="maintenanceCards"></div>
+          <div class="panel" style="margin-top:18px"><div class="panel-head"><h2>Histórico de manutenção</h2><button class="btn btn-primary btn-sm" id="newMaintenanceButton">Registrar manutenção</button></div><div id="maintenanceTable"></div></div>
+        </section>
+
+        <section class="tab-page" id="tab-finance">
+          <div class="page-title"><h2>Controle financeiro</h2><p>Resumo de receitas, garantias vinculadas, pendências e multas por atraso.</p></div>
+          <div class="finance-grid" id="financeCards"></div>
+          <div class="admin-grid">
+            <div class="panel"><div class="panel-head"><div><h2>Contas a receber</h2><span class="small muted">Reservas com pagamento pendente</span></div></div><div id="accountsReceivableTable"></div></div>
+            <div class="panel"><div class="panel-head"><div><h2>Contas a pagar</h2><span class="small muted">Despesas operacionais cadastradas</span></div></div><div id="accountsPayableTable"></div></div>
+          </div>
+          <div class="panel" style="margin-top:18px"><div class="panel-head"><h2>Lançamentos vinculados às reservas</h2><button class="btn btn-outline btn-sm" data-export="finance">Exportar CSV</button></div><div id="financeTable"></div></div>
+        </section>
+
+        <section class="tab-page" id="tab-deliveries">
+          <div class="page-title"><h2>Entregas e recolhimentos</h2><p>Controle entregas opcionais, status de rota, recolhimento e mapa do endereço. O mapa aparece ao clicar em <strong>Controlar</strong> em uma entrega.</p></div>
+          <div class="toolbar"><div class="toolbar-left"><input class="search-input" id="deliverySearch" placeholder="Buscar contrato, cliente ou endereço"><select id="deliveryStatusFilter"><option value="">Todos os status</option><option value="aguardando">Aguardando entrega</option><option value="em_rota">Em rota</option><option value="entregue">Entregue</option><option value="recolhido">Recolhido</option></select></div><div class="toolbar-right"><button class="btn btn-outline" data-export="deliveries">Exportar CSV</button></div></div>
+          <div class="delivery-summary" id="deliverySummary"></div>
+          <div id="deliveryTable"></div>
+        </section>
+
+        <section class="tab-page" id="tab-loyalty">
+          <div class="page-title"><h2>Programa ObraFácil</h2><p>Acompanhe pontos, níveis, locações concluídas e cupons automáticos dos clientes.</p></div>
+          <div class="loyalty-admin-grid" id="loyaltyCards"></div>
+          <div class="panel"><div class="panel-head"><h2>Clientes fidelizados</h2><span class="badge success">10% OFF a cada 5 locações</span></div><div id="loyaltyTable"></div></div>
+        </section>
+
+        <section class="tab-page" id="tab-goals">
+          <div class="page-title"><h2>Metas e objetivos</h2><p>Defina objetivos mensais e acompanhe o progresso da operação.</p></div>
+          <div class="kpi-grid" id="goalSummary"></div>
+          <div class="panel" style="margin-top:18px">
+            <div class="panel-head"><div><h2>Metas cadastradas</h2><span class="small muted">Receita, reservas, novos clientes e pontualidade.</span></div><button class="btn btn-primary btn-sm" id="newGoalButton">+ Nova meta</button></div>
+            <div id="goalsList"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay hidden" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle"><div class="modal"><div class="modal-head"><h3 id="adminModalTitle">Cadastro</h3><button class="modal-close" id="closeAdminModal" type="button" aria-label="Fechar janela">✕</button></div><div class="modal-body" id="adminModalBody"></div></div></div>
+
+  <script src="app.js?v=46"></script>
+  <script src="admin.js?v=46"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360">
+  <rect width="600" height="360" fill="#eef6f2"/>
+  <circle cx="470" cy="72" r="92" fill="#d6ece2"/>
+  <g transform="translate(150 72)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M75 42h132l38 76-91 73-108-49z" fill="#f4b84a" stroke="#7b5a18" stroke-width="13"/>
+    <path d="M75 42 49 16M211 118l35 129M96 181l-30 66M62 247h204" fill="none" stroke="#176b52" stroke-width="14"/>
+    <circle cx="78" cy="263" r="25" fill="#176b52"/>
+    <circle cx="244" cy="263" r="25" fill="#176b52"/>
+  </g>
+  <text x="32" y="326" font-family="Arial" font-size="28" font-weight="700" fill="#173e32">BETONEIRA 250L</text>
+</svg>
