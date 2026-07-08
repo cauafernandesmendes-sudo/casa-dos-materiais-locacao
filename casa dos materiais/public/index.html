@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de agendamento e locação de equipamentos para construção civil.">
+  <title>Casa dos materiais | Locação de equipamentos</title>
+  <link rel="stylesheet" href="styles.css?v=47">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="#inicio" aria-label="Casa dos materiais">
+        <img class="brand-logo" src="assets/logo-casa-dos-materiais.png" alt="Casa dos materiais - Locação de equipamentos">
+      </a>
+      <nav class="nav-links">
+        <a href="#catalogo">Equipamentos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#fidelidade">ObraFácil</a>
+        <a href="#agendamento">Agendar</a>
+        <button class="btn btn-outline" id="clientLoginButton" type="button">Entrar</button>
+        <a class="btn btn-secondary hidden" id="clientAccountButton" href="minha-conta.html">Minha conta</a>
+        <button class="btn btn-outline hidden" id="clientLogoutButton" type="button">Sair</button>
+        <a class="btn btn-outline admin-link" href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" tabindex="-1">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Locação profissional para obras e serviços</span>
+          <h1>Os equipamentos certos, <span>sem complicação.</span></h1>
+          <p>Encontre os equipamentos por categoria, solicite a locação online e acompanhe tudo com contrato digital, recibo e área do cliente.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#catalogo">Ver equipamentos</a>
+            <a class="btn btn-outline" href="#agendamento">Solicitar locação</a>
+          </div>
+          <div class="hero-highlights" aria-label="Vantagens da locação">
+            <span>✓ Solicitação rápida</span>
+            <span>✓ Contrato e recibo</span>
+            <span>✓ Entrega opcional</span>
+          </div>
+          <div class="hero-metrics" aria-label="Resumo dos recursos do sistema">
+            <div><strong>4</strong><span>Categorias principais</span></div>
+            <div><strong>1 conta</strong><span>Reservas e histórico</span></div>
+            <div><strong>Digital</strong><span>Contrato e recibo</span></div>
+          </div>
+        </div>
+        <aside class="hero-visual hero-visual-no-feature" aria-label="Recursos do sistema">
+          <div class="hero-mini-grid">
+            <div class="hero-mini-card"><span>🧰</span><strong>Catálogo por categoria</strong><small>construção, limpeza, jardinagem e pintura</small></div>
+            <div class="hero-mini-card"><span>📄</span><strong>Contrato e recibo</strong><small>documentos gerados automaticamente</small></div>
+            <div class="hero-mini-card"><span>🚚</span><strong>Entrega opcional</strong><small>retirada na loja ou entrega no local</small></div>
+            <div class="hero-mini-card"><span>👤</span><strong>Área do cliente</strong><small>acompanhe reservas, histórico e benefícios</small></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Recursos principais do sistema">
+      <div class="container trust-strip-grid">
+        <div><strong>Catálogo organizado</strong><span>equipamentos separados por categoria</span></div>
+        <div><strong>Reserva online</strong><span>orçamento, período e disponibilidade</span></div>
+        <div><strong>Área do cliente</strong><span>reservas, contratos e acompanhamento</span></div>
+        <div><strong>Programa ObraFácil</strong><span>pontuação, benefícios e cupons automáticos</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="catalogo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Equipamentos para sua obra</h2>
+            <p>Explore equipamentos organizados por Construção, Limpeza, Jardinagem e Pintura.</p>
+          </div>
+        </div>
+        <div class="category-tabs-section" aria-labelledby="categoryFilterTitle">
+          <div class="category-tabs-heading">
+            <div>
+              <span class="eyebrow">Escolha por frente de trabalho</span>
+              <h3 id="categoryFilterTitle">Selecione uma categoria</h3>
+              <p>Clique em uma aba para ver somente os equipamentos correspondentes.</p>
+            </div>
+            <label class="catalog-search">
+              <span class="sr-only">Pesquisar equipamento na categoria selecionada</span>
+              <span aria-hidden="true">⌕</span>
+              <input id="catalogSearch" type="search" placeholder="Pesquisar nesta categoria..." autocomplete="off">
+            </label>
+          </div>
+
+          <div class="category-tabs" id="categoryFilters" role="tablist" aria-label="Categorias de equipamentos">
+            <button class="category-tab active" type="button" data-category="construcao" role="tab" aria-selected="true" aria-controls="catalogGrid" style="--tab-accent:#d97706">
+              <img src="assets/photos/betoneira-400.jpg" alt="" aria-hidden="true">
+              <span class="category-tab-overlay"></span>
+              <span class="category-tab-name">Construção</span>
+              <span class="category-tab-count"><span data-category-count="construcao">0</span> itens</span>
+            </button>
+            <button class="category-tab" type="button" data-category="jardinagem" role="tab" aria-selected="false" aria-controls="catalogGrid" style="--tab-accent:#2f855a">
+              <img src="assets/photos/cortadora-grama.jpg" alt="" aria-hidden="true">
+              <span class="category-tab-overlay"></span>
+              <span class="category-tab-name">Jardinagem</span>
+              <span class="category-tab-count"><span data-category-count="jardinagem">0</span> itens</span>
+            </button>
+            <button class="category-tab" type="button" data-category="limpeza" role="tab" aria-selected="false" aria-controls="catalogGrid" style="--tab-accent:#0891b2">
+              <img src="assets/photos/aspirador-industrial.jpg" alt="" aria-hidden="true">
+              <span class="category-tab-overlay"></span>
+              <span class="category-tab-name">Limpeza</span>
+              <span class="category-tab-count"><span data-category-count="limpeza">0</span> itens</span>
+            </button>
+            <button class="category-tab" type="button" data-category="pintura" role="tab" aria-selected="false" aria-controls="catalogGrid" style="--tab-accent:#c05621">
+              <img src="assets/photos/pistola-pintura.jpg" alt="" aria-hidden="true">
+              <span class="category-tab-overlay"></span>
+              <span class="category-tab-name">Pintura</span>
+              <span class="category-tab-count"><span data-category-count="pintura">0</span> itens</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="catalog-category-heading" aria-live="polite">
+          <div>
+            <span class="catalog-category-kicker">Categoria selecionada</span>
+            <h3 id="catalogActiveCategory">Construção</h3>
+          </div>
+          <div class="catalog-category-meta"><strong id="catalogCount">0</strong> equipamentos encontrados</div>
+          <button class="catalog-clear-filter hidden" id="clearCatalogFilter" type="button">Limpar pesquisa</button>
+        </div>
+        <div class="catalog-grid" id="catalogGrid" role="tabpanel"></div>
+      </div>
+    </section>
+
+
+    <section class="section how-it-works-section" id="como-funciona">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Passo a passo</span>
+            <h2>Como funciona a locação</h2>
+            <p>Do cadastro até a devolução, o processo é simples, seguro e acompanhado pelo sistema.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">1</div>
+            <h3>Entre ou crie sua conta</h3>
+            <p>Cadastre-se como pessoa física ou empresa para acompanhar reservas, contratos e benefícios.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">2</div>
+            <h3>Escolha os equipamentos</h3>
+            <p>Use o catálogo por categorias para encontrar as máquinas adequadas ao serviço.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">3</div>
+            <h3>Defina o período</h3>
+            <p>Informe retirada, devolução, quantidades e entrega. O sistema calcula diárias, caução e descontos.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">4</div>
+            <h3>Confirme e acompanhe</h3>
+            <p>Finalize a solicitação, gere o contrato digital e acompanhe o andamento pela área Minha conta.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section loyalty-section" id="fidelidade">
+      <div class="container loyalty-showcase">
+        <div>
+          <span class="eyebrow">Diferencial Casa dos materiais</span>
+          <h2>Programa ObraFácil</h2>
+          <p>Clientes responsáveis acumulam pontos e benefícios. As diárias geram pontos, devoluções no prazo recebem bônus e, a cada cinco locações concluídas, o sistema libera um cupom automático de 10%.</p>
+        </div>
+        <div class="loyalty-rules">
+          <div><strong>10 pontos</strong><span>por diária e unidade</span></div>
+          <div><strong>+20 pontos</strong><span>pela devolução no prazo</span></div>
+          <div><strong>+10 pontos</strong><span>pela devolução sem avarias</span></div>
+          <div><strong>10% OFF</strong><span>a cada 5 locações concluídas</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agendamento">
+      <div class="container">
+        <div class="section-head"><div><h2>Solicitar agendamento</h2><p>Preencha os dados abaixo. Campos numéricos possuem máscaras automáticas.</p></div></div>
+        <div class="booking-wrap">
+          <aside class="info-panel">
+            <h3>Reserva protegida</h3>
+            <p>O período informado é validado no momento da confirmação da solicitação.</p>
+            <div class="info-list">
+              <div class="info-item"><div class="info-item-icon">📅</div><div><strong>Reserva organizada</strong><div class="small">Validação do período, horário e quantidade.</div></div></div>
+              <div class="info-item"><div class="info-item-icon">🔐</div><div><strong>Contrato digital</strong><div class="small">Termo gerado com prazos, valores e responsabilidades.</div></div></div>
+              <div class="info-item"><div class="info-item-icon">💳</div><div><strong>Pagamento flexível</strong><div class="small">PIX, cartão de crédito, cartão de débito ou boleto.</div></div></div>
+              <div class="info-item"><div class="info-item-icon">🚚</div><div><strong>Entrega opcional</strong><div class="small">Frete calculado no resumo da reserva.</div></div></div>
+            </div>
+          </aside>
+
+          <form class="form-card" id="bookingForm">
+            <div class="form-section">
+              <div class="account-required-banner" id="accountRequiredBanner">
+                <div><strong>Entre na sua conta para reservar</strong><p>Seus dados serão preenchidos automaticamente e suas reservas ficarão disponíveis em “Minha conta”.</p></div>
+                <button class="btn btn-primary btn-sm" id="bookingLoginButton" type="button">Entrar ou criar conta</button>
+              </div>
+              <h3>1. Dados do cliente</h3>
+              <div class="form-grid">
+                <div class="form-group full"><label for="clientName">Nome completo</label><input id="clientName" required autocomplete="name"></div>
+                <div class="form-group"><label for="clientCpf" id="clientDocumentLabel">CPF</label><input id="clientCpf" inputmode="numeric" maxlength="18" autocomplete="off" placeholder="000.000.000-00" required readonly></div>
+                <div class="form-group"><label for="clientPhone">Telefone / WhatsApp</label><input id="clientPhone" data-mask="phone" inputmode="tel" maxlength="15" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
+                <div class="form-group full"><label for="clientEmail">E-mail</label><input id="clientEmail" type="email" required autocomplete="email"></div>
+                <div class="form-group">
+                  <label for="clientCep">CEP</label>
+                  <input id="clientCep" data-mask="cep" inputmode="numeric" maxlength="9" autocomplete="postal-code" placeholder="00000-000" required>
+                  <div class="field-status" id="cepStatus" aria-live="polite">Digite os 8 números do CEP.</div>
+                </div>
+                <div class="form-group"><label for="clientNumber">Número</label><input id="clientNumber" data-mask="integer" inputmode="numeric" maxlength="8" autocomplete="address-line2" required></div>
+                <div class="form-group full"><label for="clientAddress">Rua / logradouro</label><input id="clientAddress" autocomplete="address-line1" required></div>
+                <div class="form-group"><label for="clientNeighborhood">Bairro</label><input id="clientNeighborhood" autocomplete="address-level3" required></div>
+                <div class="form-group"><label for="clientCity">Cidade</label><input id="clientCity" autocomplete="address-level2" required></div>
+                <div class="form-group"><label for="clientState">UF</label><input id="clientState" maxlength="2" autocomplete="address-level1" required></div>
+                <div class="form-group"><label for="clientComplement">Complemento</label><input id="clientComplement" autocomplete="address-line2" placeholder="Apartamento, bloco, referência..."></div>
+                <div class="form-group full">
+                  <div class="loyalty-client-card" id="loyaltyClientCard" aria-live="polite">
+                    <div class="loyalty-client-icon">★</div>
+                    <div><strong>Programa ObraFácil</strong><p>Digite seu CPF para consultar pontos, nível e cupons disponíveis.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>2. Equipamento e período</h3>
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label for="equipmentSelect">Adicionar equipamento</label>
+                  <div class="equipment-add-row">
+                    <select id="equipmentSelect"><option value="">Selecione...</option></select>
+                    <input id="quantity" type="number" min="1" value="1" aria-label="Quantidade">
+                    <button class="btn btn-secondary" id="addEquipmentButton" type="button">+ Adicionar</button>
+                  </div>
+                </div>
+                <div class="form-group full"><label for="accessorySelect">Acessório do item</label><select id="accessorySelect"><option value="">Sem acessório</option></select></div>
+                <div class="form-group full">
+                  <div class="selected-package hidden" id="selectedPackage"></div>
+                  <div class="rental-cart" id="rentalCart"><div class="cart-empty">Nenhum equipamento adicionado.</div></div>
+                </div>
+                <div class="form-group"><label>Forma de cobrança</label><div class="fixed-value">Diária</div></div>
+                <div class="form-group"><label for="startDate">Retirada</label><input id="startDate" type="datetime-local" required></div>
+                <div class="form-group"><label for="endDate">Devolução prevista</label><input id="endDate" type="datetime-local" required></div>
+                <div class="form-group full"><label for="notes">Observações da obra</label><textarea id="notes" placeholder="Ex.: acesso estreito, obra em condomínio, necessidade de extensão..."></textarea></div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>3. Entrega, pagamento e assinatura</h3>
+              <div class="form-grid">
+                <div class="form-group"><label for="delivery">Forma de retirada</label><select id="delivery"><option value="pickup">Retirada no balcão</option><option value="delivery">Solicitar entrega</option></select></div>
+                <div class="form-group"><label for="paymentMethod">Pagamento</label><select id="paymentMethod"><option value="PIX">PIX</option><option value="Cartão de crédito">Cartão de crédito</option><option value="Cartão de débito">Cartão de débito</option><option value="Boleto">Boleto</option></select></div>
+                <div class="form-group"><label for="couponCode">Cupom ObraFácil</label><input id="couponCode" maxlength="60" placeholder="Ex.: OBRA10-5-ABCD" autocomplete="off"></div>
+                <div class="form-group"><label>Benefício</label><div class="fixed-value" id="couponStatus">Nenhum cupom aplicado</div></div>
+                <div class="form-group full"><label for="signatureName">Assinatura eletrônica (digite seu nome completo)</label><input id="signatureName" required></div>
+                <div class="form-group full checkbox-row"><input id="terms" type="checkbox" required><label for="terms">Declaro que os dados são verdadeiros e declaro ciência da caução/garantia vinculada, multas por atraso e inspeção do equipamento na retirada e devolução.</label></div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Resumo do orçamento</h3>
+              <div class="price-box" id="priceSummary">
+                <div class="price-line"><span>Diárias consideradas</span><strong id="dailyCountValue">0</strong></div>
+                <div class="price-line"><span>Locação</span><strong id="rentalValue">R$ 0,00</strong></div>
+                <div class="price-line hidden" id="packageDiscountLine"><span>Desconto do pacote</span><strong id="packageDiscountValue">- R$ 0,00</strong></div>
+                <div class="price-line hidden" id="businessDiscountLine"><span>Benefício CNPJ</span><strong id="businessDiscountValue">- R$ 0,00</strong></div>
+                <div class="price-line hidden" id="discountLine"><span>Desconto ObraFácil</span><strong id="discountValue">- R$ 0,00</strong></div>
+                <div class="price-line"><span>Frete</span><strong id="freightValue">R$ 0,00</strong></div>
+                <div class="price-line guarantee"><span>Caução / garantia vinculada</span><strong id="depositValue">R$ 0,00</strong></div>
+                <div class="price-line muted-line"><span>Total com garantia</span><strong id="guaranteeTotalValue">R$ 0,00</strong></div>
+                <div class="price-line total"><span>Total a pagar agora</span><strong id="totalValue">R$ 0,00</strong></div>
+                <p class="guarantee-note">A caução é uma garantia vinculada ao contrato. Ela só será cobrada ou retida se houver dano, perda, peça faltando, atraso ou devolução fora das condições combinadas.</p>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Confirmar solicitação e gerar contrato</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><div class="brand" aria-label="Casa dos materiais"><img class="brand-logo footer-logo" src="assets/logo-casa-dos-materiais.png" alt="Casa dos materiais - Locação de equipamentos"></div><div>Protótipo de gestão de locação • Catálogo, reservas, contratos e financeiro</div></div></footer>
+
+
+  <div class="modal-overlay hidden" id="clientAuthModal">
+    <div class="modal client-auth-modal">
+      <div class="modal-head"><h3>Acesso do cliente</h3><button class="modal-close" id="closeClientAuth" type="button">✕</button></div>
+      <div class="modal-body">
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab active" type="button" data-auth-tab="login">Entrar</button>
+          <button class="auth-tab" type="button" data-auth-tab="register">Criar conta</button>
+        </div>
+        <form id="clientLoginForm" class="auth-panel active">
+          <div class="form-group"><label for="loginClientEmail">E-mail</label><input id="loginClientEmail" type="email" autocomplete="email" required></div>
+          <div class="form-group" style="margin-top:14px"><label for="loginClientPassword">Senha</label><input id="loginClientPassword" type="password" autocomplete="current-password" required></div>
+          <button class="btn btn-primary btn-block" style="margin-top:18px" type="submit">Entrar</button>
+        </form>
+        <form id="clientRegisterForm" class="auth-panel">
+          <div class="form-grid">
+            <div class="form-group full"><label for="registerClientType">Tipo de cliente</label><select id="registerClientType"><option value="PF">Pessoa física — CPF</option><option value="PJ">Pessoa jurídica — CNPJ</option></select></div>
+            <div class="form-group full company-field hidden"><label for="registerCompanyName">Razão social</label><input id="registerCompanyName"></div>
+            <div class="form-group full company-field hidden"><label for="registerTradeName">Nome fantasia</label><input id="registerTradeName"></div>
+            <div class="form-group"><label for="registerName" id="registerNameLabel">Nome completo</label><input id="registerName" autocomplete="name" required></div>
+            <div class="form-group"><label for="registerDocument" id="registerDocumentLabel">CPF</label><input id="registerDocument" inputmode="numeric" maxlength="18" required></div>
+            <div class="form-group"><label for="registerPhone">Telefone</label><input id="registerPhone" data-mask="phone" inputmode="tel" maxlength="15" required></div>
+            <div class="form-group"><label for="registerEmail">E-mail</label><input id="registerEmail" type="email" autocomplete="email" required></div>
+            <div class="form-group full"><label for="registerPassword">Senha</label><input id="registerPassword" type="password" minlength="6" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required></div>
+            <div class="form-group"><label for="registerCep">CEP</label><input id="registerCep" data-mask="cep" inputmode="numeric" maxlength="9" required></div>
+            <div class="form-group"><label for="registerAddressNumber">Número</label><input id="registerAddressNumber" data-mask="integer" inputmode="numeric" required></div>
+            <div class="form-group full"><label for="registerAddress">Rua / logradouro</label><input id="registerAddress" required></div>
+            <div class="form-group"><label for="registerNeighborhood">Bairro</label><input id="registerNeighborhood" required></div>
+            <div class="form-group"><label for="registerCity">Cidade</label><input id="registerCity" required></div>
+            <div class="form-group"><label for="registerState">UF</label><input id="registerState" maxlength="2" required></div>
+            <div class="form-group"><label for="registerComplement">Complemento</label><input id="registerComplement"></div>
+          </div>
+          <button class="btn btn-primary btn-block" style="margin-top:18px" type="submit">Criar conta e entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="contractModal" role="dialog" aria-modal="true" aria-labelledby="contractModalTitle">
+    <div class="modal">
+      <div class="modal-head"><h3 id="contractModalTitle">Contrato de locação gerado</h3><button class="modal-close" id="closeContract" type="button" aria-label="Fechar contrato">✕</button></div>
+      <div class="modal-body">
+        <div class="contract" id="contractContent"></div>
+        <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap">
+          <button class="btn btn-outline" onclick="window.print()">Imprimir / Salvar PDF</button>
+          <button class="btn btn-secondary" id="simulateWhatsApp" type="button">📱 Enviar por WhatsApp</button>
+          <a class="btn btn-outline hidden" id="invoiceButton" target="_blank" rel="noopener">Nota / recibo</a>
+          <button class="btn btn-primary" id="finishContract">Concluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=47"></script>
+  <script src="client-auth.js?v=47"></script>
+  <script src="client.js?v=47"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrato de locação | Casa dos materiais</title>
+  <link rel="stylesheet" href="styles.css?v=47">
+</head>
+<body class="contract-page">
+  <a class="skip-link no-print" href="#printContract">Pular para o contrato</a>
+  <div class="contract-toolbar no-print">
+    <button class="btn btn-outline" type="button" onclick="history.back()">← Voltar</button>
+    <button class="btn btn-primary" id="printContractButton" type="button">Imprimir / Salvar em PDF</button>
+  </div>
+  <main class="print-contract" id="printContract" tabindex="-1">
+    <div class="contract-loading">Carregando contrato...</div>
+  </main>
+  <script src="app.js?v=47"></script>
+  <script src="contract.js?v=47"></script>
+</body>
+</html>
